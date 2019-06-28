@@ -11,4 +11,4 @@ class Users(models.Model):
 
 class Interests(models.Model):
     user = models.ForeignKey(Users, on_delete=models.CASCADE)
-    interested = models.CharField(max_length=400)
+    interest= models.CharField(max_length=400)

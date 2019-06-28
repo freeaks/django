@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from .models import Users, Interests
+from .models import Users
 
 
 def index(request):
@@ -9,8 +9,14 @@ def index(request):
 
 
 def doers(request):
-    user4=Users()
-    user4.username=request.POST['user_name']
+    username = request.POST.get('username')
+    full_name = request.POST.get('fullname')
+    email = request.POST.get('email')
+    password = request.POST.get('password')
+    phone_number=request.POST.get('phonenumber')
+    user2=Users(username=username,full_name=full_name,email=email,password=password,phone_number=phone_number)
+    print(user2.password)
+    user2.save()
     return render(request, 'doers.html',)
 
 
