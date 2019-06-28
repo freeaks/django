@@ -4,7 +4,6 @@ from .models import Users
 
 
 def index(request):
-    user=Users.objects.all()
     return render(request, 'index.html', )
 
 
@@ -14,9 +13,9 @@ def doers(request):
     email = request.POST.get('email')
     password = request.POST.get('password')
     phone_number=request.POST.get('phonenumber')
-    user2=Users(username=username,full_name=full_name,email=email,password=password,phone_number=phone_number)
-    print(user2.password)
-    user2.save()
+    user=Users(username=username,full_name=full_name,email=email,password=password,phone_number=phone_number)
+    print(user.password)
+    #user.save()
     return render(request, 'doers.html',)
 
 
